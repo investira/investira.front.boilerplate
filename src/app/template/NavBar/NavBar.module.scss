@@ -1,0 +1,171 @@
+$sideAreas: 48px;
+$heightDense: 48px;
+$heightRegular: 56px;
+$heightLarge: 64px;
+
+.root {
+    position: relative;
+    width: 100%;
+    display: flex;
+    z-index: 1100;
+    box-shadow: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-direction: column;
+    background-color: transparent;
+    align-content: stretch;
+    padding: 0 4px;
+}
+
+.gutters {
+    padding: 0 16px;
+}
+
+.toolbar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.toolbarTitleAndRight {
+    justify-content: space-between;
+
+    & h6 {
+        padding-left: 12px;
+    }
+
+    .titleRegular,
+    .centerRegular {
+        width: calc(100% - #{$heightRegular});
+    }
+}
+
+.toolbarCenterOnly {
+    justify-content: center;
+}
+
+.toolbarRightOnly {
+    justify-content: flex-end;
+}
+
+.toolbarLeft {
+    justify-content: flex-start;
+}
+
+.dense {
+    height: $heightDense;
+
+    .leftArea {
+        width: $heightDense;
+    }
+
+    .rightArea {
+        width: $heightDense;
+    }
+}
+
+.regular {
+    height: $heightRegular;
+
+    .leftArea {
+        //width: $heightRegular;
+    }
+
+    .rightArea {
+        //width: $heightRegular;
+    }
+}
+
+.large {
+    height: $heightLarge;
+
+    .leftArea {
+        width: $heightLarge;
+    }
+
+    .rightArea {
+        width: $heightLarge;
+    }
+}
+
+.buttonArea,
+.iconArea {
+    position: relative;
+}
+
+.iconArea {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.titleArea {
+    display: flex;
+    //text-align: center;
+
+    // & > h6 {
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    // }
+}
+
+.titleDense,
+.centerDense {
+    width: calc(100% - #{$heightDense} * 2);
+}
+
+.titleRegular,
+.centerRegular {
+    width: calc(100% - #{$heightRegular} * 2);
+}
+
+.titleLarge,
+.centerLarge {
+    width: calc(100% - #{$heightLarge} * 2);
+}
+
+// .titleArea {
+//     text-align: center;
+// }
+
+// .titleAreaModal {
+//     text-align: left;
+// }
+
+.leftArea,
+.centerArea,
+.rightArea {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.leftArea {
+    justify-content: center;
+}
+
+.leftAreaDense,
+.leftAreaRegular,
+.leftAreaLarge,
+.rightAreaDense,
+.rightAreaRegular,
+.rightAreaLarge {
+    min-width: $sideAreas;
+}
+
+.centerArea {
+    //justify-content: center;
+}
+
+.centerGutters {
+    //padding: 0 12px;
+}
+
+.rightArea {
+    justify-content: flex-end;
+}

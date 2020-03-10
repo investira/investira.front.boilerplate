@@ -1,0 +1,50 @@
+.root {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.circle {
+    margin: 16px;
+    position: relative;
+}
+
+.ok {
+    stroke-dasharray: 585 587;
+    stroke-dashoffset: 586;
+}
+
+.start .ok {
+    animation: draw 690ms ease-in-out 100ms forwards,
+        fade 690ms ease-in-out 100ms forwards;
+}
+
+.circle {
+    stroke-dasharray: 151 153;
+    stroke-dashoffset: 152;
+}
+
+.start .circle {
+    animation: draw 690ms ease-in-out 110ms forwards,
+        fade 690ms ease-in-out 110ms forwards;
+}
+
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        stroke-opacity: 0;
+    }
+
+    50% {
+        stroke-opacity: 1;
+    }
+
+    100% {
+        stroke-opacity: 1;
+    }
+}

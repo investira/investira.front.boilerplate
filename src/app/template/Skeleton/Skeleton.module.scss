@@ -1,0 +1,38 @@
+$navbarDenseHeight: 48px;
+$navbarRegularHeight: 56px;
+$navbarLargeHeight: 64px;
+
+.root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    position: relative;
+    grid-template-areas: 'head' 'body';
+    //grid-template-rows: 44px calc(100% - 44px);
+    grid-template-columns: 100%;
+}
+
+.navbarDense {
+    grid-template-rows: $navbarDenseHeight calc(100% - #{$navbarDenseHeight});
+}
+
+.navbarRegular {
+    grid-template-rows: $navbarRegularHeight calc(
+            100% - #{$navbarRegularHeight}
+        );
+}
+
+.navbarLarge {
+    grid-template-rows: $navbarLargeHeight calc(100% - #{$navbarLargeHeight});
+}
+
+.head {
+    grid-area: head;
+    display: flex;
+}
+
+.body {
+    grid-area: body;
+    position: relative;
+}

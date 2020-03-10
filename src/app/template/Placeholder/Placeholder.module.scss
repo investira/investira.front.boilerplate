@@ -1,0 +1,23 @@
+.root {
+    background-color: #949ed8;
+    background-image: linear-gradient(90deg, #949ed8, #7a81ab, #949ed8);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    display: inline-block;
+    //line-height: 0.5;
+    width: 100%;
+    height: 0.5rem; //background-position: calc(50% + 100%);
+    opacity: 0.67;
+    animation: highlight 1s ease-in-out infinite;
+}
+
+@keyframes highlight {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: calc(50% + 100%) 0;
+    }
+}

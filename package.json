@@ -33,6 +33,7 @@
         "react-vis": "1.11.6",
         "redux": "4.0.1",
         "redux-thunk": "2.3.0",
+        "styled-components": "^5.0.1",
         "text-mask-addons": "3.8.0",
         "yup": "0.26.10"
     },
