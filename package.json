@@ -23,7 +23,7 @@
         "node-sass": "4.12.0",
         "react": "16.10.1",
         "react-dom": "16.10.1",
-        "react-input-mask": "^2.0.4",
+        "react-input-mask": "2.0.4",
         "react-number-format": "4.0.7",
         "react-redux": "5.1.2",
         "react-router-dom": "4.3.1",
