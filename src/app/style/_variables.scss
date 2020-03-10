@@ -1,0 +1,4 @@
+$animation-deceleration-curve-timing: cubic-bezier(0, 0, .2, 1) !default;
+$animation-standard-curve-timing: cubic-bezier(.4, 0, .2, 1) !default;
+$animation-acceleration-curve-timing: cubic-bezier(.4, 0, 1, 1) !default;
+$animation-sharp-curve-timing: cubic-bezier(.4, 0, .6, 1) !default;

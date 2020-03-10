@@ -1,0 +1,47 @@
+@mixin fontSize($size) {
+    font-size: calculateRem($size);
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+    margin: calculateRem($top), calculateRem($right), calculateRem($bottom), calculateRem($left);
+}
+
+@mixin marginTop($size) {
+    margin-top: calculateRem($size);
+}
+
+@mixin marginBottom($size) {
+    margin-bottom: calculateRem($size);
+}
+
+@mixin marginLeft($size) {
+    margin-left: calculateRem($size);
+}
+
+@mixin marginRight($size) {
+    margin-right: calculateRem($size);
+}
+
+@mixin lineHeight($size) {
+    line-height: calculateRem($size);
+}
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type==max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin btnBorder($radius, $width, $color) {
+    border-top-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    border: $width solid $color;
+}

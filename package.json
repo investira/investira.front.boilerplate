@@ -1,0 +1,97 @@
+{
+    "name": "investira_boilerplate",
+    "version": "1.0.0",
+    "author": "Investira",
+    "description": "",
+    "type": "version",
+    "registry": true,
+    "homepage": "",
+    "keywords": [
+        "investira",
+        "boilerplate"
+    ],
+    "private": true,
+    "dependencies": {
+        "@date-io/moment": "1.3.8",
+        "classnames": "2.2.6",
+        "formik": "1.5.0",
+        "hammerjs": "2.0.8",
+        "investira.data": "1.1.8",
+        "investira.react": "file:../investira.react",
+        "investira.sdk": "1.2.17",
+        "moment": "2.24.0",
+        "node-sass": "4.12.0",
+        "react": "16.10.1",
+        "react-dom": "16.10.1",
+        "react-input-mask": "^2.0.4",
+        "react-number-format": "4.0.7",
+        "react-redux": "5.1.2",
+        "react-router-dom": "4.3.1",
+        "react-scripts": "3.1.2",
+        "react-text-mask": "5.4.3",
+        "react-transition-group": "4.3.0",
+        "react-vis": "1.11.6",
+        "redux": "4.0.1",
+        "redux-thunk": "2.3.0",
+        "text-mask-addons": "3.8.0",
+        "yup": "0.26.10"
+    },
+    "resolutions": {
+        "eslint-loader": "3.0.2"
+    },
+    "scripts": {
+        "start": "PORT=3101 react-app-rewired start",
+        "preload": "node ./scripts/preload.js",
+        "build": "react-app-rewired build && npm run preload",
+        "deploy": "aws s3 sync build/ s3://app.investira.vc",
+        "deploy-homolog": "aws s3 sync build/ s3://apphomolog.investira.vc",
+        "prod": "npm run build && npm run deploy",
+        "stop": "react-app-rewired stop",
+        "test": "react-app-rewired test --env=jsdom",
+        "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache",
+        "eject": "react-app-rewired eject",
+        "flow": "flow",
+        "test_simulacoes": "nodemon ./src/tests/test_simulacoes -- --inspect-brk"
+    },
+    "devDependencies": {
+        "babel-core": "6.26.3",
+        "babel-runtime": "6.26.0",
+        "customize-cra": "0.9.1",
+        "eslint-plugin-import-helpers": "1.0.2",
+        "eslint-plugin-react-hooks": "1.6.1",
+        "prop-types": "15.7.1",
+        "react-app-rewired": "2.1.5",
+        "tape": "4.11.0"
+    },
+    "browserslist": [
+        ">0.5% and last 2 versions",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "jshintConfig": {
+        "curly": true,
+        "eqeqeq": false,
+        "latedef": false,
+        "undef": false,
+        "varstmt": true,
+        "funcscope": true,
+        "supernew": true,
+        "boss": true,
+        "eqnull": true,
+        "strict": false,
+        "scripturl": true,
+        "maxdepth": 4,
+        "maxparams": 5,
+        "esversion": 9,
+        "globals": {
+            "esversion": 9,
+            "location": true,
+            "printStackTrace": false,
+            "gLog": true,
+            "gRC": true
+        },
+        "browser": true,
+        "node": true
+    }
+}

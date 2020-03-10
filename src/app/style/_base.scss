@@ -1,0 +1,123 @@
+/* 
+* Aqui ficam os estilos básicos
+* a última camada onde veremos seletores em tags diretamente.
+*/
+
+:root {
+    --font-family: 'Montserrat', sans-serif;
+}
+
+body,
+html {
+    margin: 0;
+    position: fixed;
+}
+
+html,
+body,
+#root {
+    height: 100vh;
+    width: 100vw;
+    //position: relative;
+    //overflow: scroll;
+    //overflow: hidden;
+    //position: fixed;
+}
+
+html {
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--color-secondary-dark);
+}
+
+body {
+    font-family: var(--font-family);
+    padding: 0;
+    //position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: -webkit-linear-gradient(top,
+    //         var(--color-bg-dark) 0%,
+    //         var(--color-bg-main) 100%);
+    // background: linear-gradient(to bottom,
+    //         var(--color-bg-dark) 0%,
+    //         var(--color-bg-main) 100%);
+    background: var(--color-bg-dark);
+}
+
+#root {
+    position: relative;
+}
+
+#root[aria-hidden='true'] {
+    position: relative;
+}
+
+button {
+    display: flex;
+    background: transparent;
+    cursor: pointer;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+input {
+    caret-color: var(--color-primary-lightness);
+}
+
+@-webkit-keyframes autofill {
+    to {
+        color: var(--color-white-100);
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: none !important;
+    -webkit-text-fill-color: var(--color-white-100) !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--color-primary-lightness);
+}
+
+input[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+.app {
+    height: 100%;
+    // background: linear-gradient(to bottom,
+    //         var(--color-bg-dark) 0%,
+    //         var(--color-bg-main) 100%);
+}

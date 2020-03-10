@@ -1,0 +1,31 @@
+/* 
+ * Responsivo
+ */
+
+$breakpoints: (
+    'phone-small': 320px,
+    'phone': 400px,
+    'phone-wide': 480px,
+    'phablet': 560px,
+    'tablet-small': 640px,
+    'tablet': 768px,
+    'tablet-wide': 992px,
+    'desktop': 1200px,
+    'desktop-wide': 1440px
+);
+$max-widths: (
+    'phone': 370px,
+    'phone-wide': 450px,
+    'phablet': 530px,
+    'tablet-small': 610px,
+    'tablet': 720px,
+    'tablet-wide': 960px,
+    'desktop': 1170px,
+    'desktop-wide': 1300px
+);
+/* 
+ * Tamanhos
+ */
+
+$spacing: 8px;
+$radius: 10px;
