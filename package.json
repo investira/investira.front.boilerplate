@@ -20,7 +20,7 @@
         "investira.react": "file:../investira.react",
         "investira.sdk": "1.2.17",
         "moment": "2.24.0",
-        "node-sass": "4.12.0",
+        "node-sass": "4.13.1",
         "react": "16.10.1",
         "react-dom": "16.10.1",
         "react-input-mask": "2.0.4",
