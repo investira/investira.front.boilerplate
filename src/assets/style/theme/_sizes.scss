@@ -1,0 +1,25 @@
+/* 
+ * Responsivo
+ */
+
+$breakpoints: (
+    'xs': 0,
+    'sm': 600px,
+    'md': 960px,
+    'lg': 1280px,
+    'xl': 1920px
+);
+
+$max-widths: (
+    'xs': 0,
+    'sm': 600px,
+    'md': 960px,
+    'lg': 1280px,
+    'xl': 1920px
+);
+/* 
+ * Tamanhos
+ */
+
+$spacing: 8px;
+$radius: 10px;

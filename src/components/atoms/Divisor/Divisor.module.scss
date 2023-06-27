@@ -1,0 +1,17 @@
+.root {
+    position: relative;
+    background-color: var(--color-secondary-dark);
+    padding-left: 2%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+%fontColorWhite {
+    color: var(--color-white-90);
+}
+
+.letter {
+    @extend %fontColorWhite;
+    padding-left: 8px;
+}

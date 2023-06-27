@@ -1,49 +1,81 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import { formats } from 'investira.sdk';
-import appReducer from './appReducer';
-import { themePrimary } from 'investiraComponents/styles/invThemes';
-import { ThemeProvider } from 'investiraComponents';
-import Root from './views/Root';
-import { ReactComponent as IconSprite } from './images/symbol-defs.svg';
-import './style/app.scss';
+import {
+    ThemeProvider,
+    PersistGate,
+    DndProvider,
+    withThemeLocale
+} from 'investira.react.components';
+import { themePrimary } from 'investira.react.components/styles/invThemes';
+import { ReactComponent as IconSprite } from '../assets/images/symbol-defs.svg';
+import withClearCache from './ClearCache';
+import { RootController } from '../controllers';
+import { store, persistor } from '../store';
+import utils from '../utils';
+import { AppProvider } from './AppManager';
+import Root from './Root';
 
-//Ativa plugin REDUX no Chrome
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+import '../assets/style/app.scss';
 
-//Cria store; define reducer e Redux extension
-const store = applyMiddleware(thunk)(createStore)(appReducer, devTools);
+// Add polyfill aos navegadores sem suporte a scroll-behavior (Isso é para você safari!)
+if (!('scrollBehavior' in document.documentElement.style)) {
+    (async function () {
+        await import('scroll-behavior-polyfill');
+    })();
+}
+
+// Remove console.log em produção
+utils.build.noLog();
+utils.build.noTrace();
 
 // Configura a localização;
 formats.locale('pt-br');
 
-class App extends Component {
-    componentDidMount() {
-        const noScrollBody = () =>
+function Main(props) {
+    return (
+        <DndProvider>
+            <ThemeProvider theme={themePrimary}>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        <AppProvider>
+                            <div id="app" className="app theme-primary">
+                                <BrowserRouter>
+                                    <RootController component={Root} />
+                                </BrowserRouter>
+                                <IconSprite />
+                            </div>
+                        </AppProvider>
+                    </PersistGate>
+                </Provider>
+            </ThemeProvider>
+        </DndProvider>
+    );
+}
+
+const ClearCacheComponent = withClearCache(withThemeLocale(Main, themePrimary, 'ptBR'));
+
+const App = () => {
+    useEffect(() => {
+        const noScrollBody = (function () {
             document.body.addEventListener('touchmove', pEvent => {
                 document.body.scrollTop = 0;
                 pEvent.preventDefault();
             });
-        noScrollBody();
-    }
+        })();
 
-    render() {
-        return (
-            <Provider store={store}>
-                <ThemeProvider theme={themePrimary}>
-                    <div className="app theme-primary">
-                        <BrowserRouter>
-                            <Root />
-                        </BrowserRouter>
-                        <IconSprite />
-                    </div>
-                </ThemeProvider>
-            </Provider>
-        );
-    }
-}
+        return () => {
+            document.body.removeEventListener('touchmove', pEvent => {
+                document.body.scrollTop = 0;
+                pEvent.preventDefault();
+            });
+        };
+    }, []);
+
+    return <ClearCacheComponent />;
+};
+
+App.displayName = 'App';
 
 export default App;

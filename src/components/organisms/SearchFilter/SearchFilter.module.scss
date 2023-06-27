@@ -1,0 +1,55 @@
+.body {
+    padding: 16px;
+}
+
+.group {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color-secondary-light);
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.truncate {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    span,
+    p {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.chipWrap {
+    max-width: 100%;
+    margin-bottom: 8px;
+    display: inline-block;
+    padding: 0px 4px;
+
+    span,
+    p {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 -8px;
+}
+
+.btnWrap {
+    flex-grow: 1;
+    padding: 8px;
+}

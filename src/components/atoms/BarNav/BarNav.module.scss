@@ -1,0 +1,10 @@
+@import '../../../assets/style/_core.scss';
+
+.root {
+    display: flex;
+    position: relative;
+}
+
+.wrap {
+    @extend %wrap;
+}

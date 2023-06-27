@@ -1,0 +1,97 @@
+@mixin bg($bgcolor, $hgcolor, $bgPos, $hgPos, $time) {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-repeat: no-repeat;
+    background: $hgcolor $hgPos;
+    background: linear-gradient(90deg, $bgcolor $bgPos, $hgcolor $hgPos);
+    animation: rotate $time linear infinite;
+}
+
+@mixin afterBg($bgcolor) {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: $bgcolor;
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.root {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.43;
+    border-radius: 4px;
+    letter-spacing: 0.01071em;
+}
+
+.icon {
+    display: flex;
+    opacity: 0.9;
+    padding: 7px 0;
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+.message {
+    padding: 8px 0;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 16px;
+}
+
+.status {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 2px;
+    pointer-events: all;
+    & > * {
+        pointer-events: none;
+    }
+
+    &::after {
+        @include afterBg(var(--color-secondary));
+    }
+
+    &::before {
+        @include bg(var(--color-secondary), var(--color-info-highlight), 48%, 80%, 1s);
+    }
+}
+
+.fakeBg {
+    width: 24px;
+    height: 24px;
+}
+
+.children {
+    height: 24px;
+    width: 24px;
+}

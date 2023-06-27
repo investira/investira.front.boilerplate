@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+}
+
+.title {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+}

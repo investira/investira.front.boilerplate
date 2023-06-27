@@ -1,0 +1,69 @@
+@import '../../assets/style/_core.scss';
+
+.body {
+    height: 100%;
+    position: relative;
+    padding: 0 $spacing * 2;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px auto;
+    position: relative;
+}
+
+.icon {
+    width: 200px;
+    height: 200px;
+}
+
+.button {
+    position: absolute !important;
+    bottom: 24px;
+    width: calc(100% - 32px);
+}
+
+.highlight {
+    @extend %textHighlight;
+    font-weight: 600;
+}
+
+// SVG
+.ok {
+    stroke-dasharray: 585 587;
+    stroke-dashoffset: 586;
+}
+
+.start .ok {
+    animation: draw 690ms ease-in-out 100ms forwards, fade 690ms ease-in-out 100ms forwards;
+}
+
+.circle {
+    stroke-dasharray: 151 153;
+    stroke-dashoffset: 152;
+}
+
+.start .circle {
+    animation: draw 690ms ease-in-out 110ms forwards, fade 690ms ease-in-out 110ms forwards;
+}
+
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        stroke-opacity: 0;
+    }
+
+    50% {
+        stroke-opacity: 1;
+    }
+
+    100% {
+        stroke-opacity: 1;
+    }
+}

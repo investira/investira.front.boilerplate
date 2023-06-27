@@ -1,0 +1,60 @@
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.email {
+    // margin-left: 4px;
+}
+
+.full {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.abbr {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.fullText {
+    color: var(--color-white-90);
+    padding-left: 8px;
+}
+
+.abbrText {
+    color: var(--color-white-90);
+    padding-left: 12px;
+}
+
+.avatarAbbr {
+    font-size: 0.8rem;
+    width: 200px;
+    height: 200px;
+}
+
+.compactoText {
+    color: var(--color-white-90);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.compacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 72px;
+}
+
+.content {
+    position: relative;
+}

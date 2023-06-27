@@ -1,0 +1,10 @@
+//@import '../core.scss';
+
+@function calculateRem($size) {
+  $remSize: calc($size / 16px);
+  @return #{$remSize}rem;
+}
+
+@function spacing($multiply) {
+  @return #{8 * $multiply}px;
+}

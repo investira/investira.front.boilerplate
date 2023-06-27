@@ -29,13 +29,10 @@ function task(pCallback) {
 
     fs.readdir(mediaDirectoryPath, (err, files) => {
         if (err) {
-            return console.log(
-                '\x1b[41m%s\x1b[0m',
-                `Pasta '${mediaDirectoryPath}' não encontrada`
-            );
+            return console.log('\x1b[41m%s\x1b[0m', `Pasta '${mediaDirectoryPath}' não encontrada`);
         }
 
-        for (filename of files) {
+        for (let filename of files) {
             console.log(`[prefetch] /static/media/${filename}`);
             imagesPrefetch = [
                 ...imagesPrefetch,
@@ -49,9 +46,4 @@ function task(pCallback) {
     });
 }
 
-task(() =>
-    console.log(
-        '\x1b[32m%s\x1b[0m',
-        `Preloads e Prefetchs adiconados com sucesso! 💯 👍 `
-    )
-);
+task(() => console.log('\x1b[32m%s\x1b[0m', `Preloads e Prefetchs adiconados com sucesso! 💯 👍 `));

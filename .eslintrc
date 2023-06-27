@@ -3,14 +3,14 @@
     "plugins": ["prettier", "react-hooks", "eslint-plugin-import-helpers"],
     "rules": {
         "prettier/prettier": "error",
-        "react-hooks/rules-of-hooks": "error"
-    },
-    "import-helpers/order-imports": [
-        "warn",
-        {
-            "newlinesBetween": "always",
-            "groups": ["module", ["parent", "sibling", "index"]],
-            "alphabetize": { "order": "asc", "ignoreCase": true }
-        }
-    ]
+        "react-hooks/rules-of-hooks": "error",
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": ["module", ["parent", "sibling", "index"]],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ]
+    }
 }

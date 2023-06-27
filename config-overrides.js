@@ -1,41 +1,39 @@
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
+
 const {
     override,
     addDecoratorsLegacy,
     babelInclude,
-    addWebpackAlias
+    addWebpackAlias,
+    addBabelPlugin
 } = require('customize-cra');
 
-module.exports = function(config, env) {
-    return Object.assign(
+module.exports = function (config, env) {
+    const xConfig = Object.assign(
         config,
         override(
             addDecoratorsLegacy(),
             addWebpackAlias({
-                react: path.resolve(
-                    path.join(__dirname, './node_modules/react')
+                react: path.resolve(path.join(__dirname, './node_modules/react')),
+                'react-redux': path.resolve(path.join(__dirname, './node_modules/react-redux')),
+                formik: path.resolve(path.join(__dirname, './node_modules/formik')),
+                'investira.react.components': path.resolve(
+                    path.join(__dirname, './node_modules/investira.react.components/src/components')
                 ),
-                formik: path.resolve(
-                    path.join(__dirname, './node_modules/formik')
-                ),
-                investiraComponents: path.resolve(
-                    path.join(
-                        __dirname,
-                        './node_modules/investira.react/src/components'
-                    )
-                ),
-                investiraLib: path.resolve(
-                    path.join(
-                        __dirname,
-                        './node_modules/investira.react/src/lib'
-                    )
+                'investira.react.charts': path.resolve(
+                    path.join(__dirname, './node_modules/investira.react.charts/src/components')
                 )
             }),
             babelInclude([
                 path.resolve('src'),
-                fs.realpathSync('node_modules/investira.react/src')
-            ])
+                fs.realpathSync('node_modules/investira.react.components/src'),
+                fs.realpathSync('node_modules/investira.react.charts/src')
+            ]),
+            addBabelPlugin(['@babel/plugin-proposal-optional-chaining', { loose: false }]),
+            addBabelPlugin(['@babel/plugin-proposal-nullish-coalescing-operator', { loose: false }])
         )(config, env)
     );
+
+    return xConfig;
 };

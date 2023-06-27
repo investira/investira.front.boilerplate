@@ -1,0 +1,131 @@
+@import '../../assets/style/_core.scss';
+
+.root {
+    position: relative;
+    height: 100%;
+}
+
+.body {
+    position: relative;
+    padding: 16px;
+    height: 100%;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    margin: 44px auto 24px auto;
+    position: relative;
+}
+
+.confirmText {
+    margin-top: 16px;
+}
+
+.button {
+    position: absolute !important;
+    bottom: 24px;
+    width: calc(100% - 32px);
+}
+
+.highlight {
+    color: #f1b40f;
+    font-weight: 600;
+}
+
+// SVG OK
+.ok {
+    stroke-dasharray: 585 587;
+    stroke-dashoffset: 586;
+}
+
+.start .ok {
+    animation: draw 690ms ease-in-out 100ms forwards, fade 690ms ease-in-out 100ms forwards;
+}
+
+.circle {
+    stroke-dasharray: 151 153;
+    stroke-dashoffset: 152;
+}
+
+.start .circle {
+    animation: draw 690ms ease-in-out 110ms forwards, fade 690ms ease-in-out 110ms forwards;
+}
+
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        stroke-opacity: 0;
+    }
+
+    50% {
+        stroke-opacity: 1;
+    }
+
+    100% {
+        stroke-opacity: 1;
+    }
+}
+
+// SVG INVÁLIDO
+
+.hfwBdvMn_0 {
+    stroke-dasharray: 752 754;
+    stroke-dashoffset: 753;
+}
+
+.start .hfwBdvMn_0 {
+    animation: hfwBdvMn_draw 100ms ease 0ms forwards;
+}
+
+.hfwBdvMn_1 {
+    stroke-dasharray: 141 143;
+    stroke-dashoffset: 142;
+}
+
+.start .hfwBdvMn_1 {
+    animation: hfwBdvMn_draw 100ms ease 10ms forwards;
+}
+
+.hfwBdvMn_2 {
+    stroke-dasharray: 83 85;
+    stroke-dashoffset: 84;
+}
+
+.start .hfwBdvMn_2 {
+    animation: hfwBdvMn_draw 100ms ease 20ms forwards;
+}
+
+.hfwBdvMn_3 {
+    stroke-dasharray: 83 85;
+    stroke-dashoffset: 84;
+}
+
+.start .hfwBdvMn_3 {
+    animation: hfwBdvMn_draw 100ms ease 30ms forwards;
+}
+
+@keyframes hfwBdvMn_draw {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes hfwBdvMn_fade {
+    0% {
+        stroke-opacity: 1;
+    }
+
+    92.3076923076923% {
+        stroke-opacity: 1;
+    }
+
+    100% {
+        stroke-opacity: 0;
+    }
+}
