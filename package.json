@@ -28,7 +28,6 @@
         "env-cmd": "10.1.0",
         "formik": "2.2.9",
         "idb": "6.1.5",
-        "investira.react.charts": "file:../investira.react.charts",
         "investira.react.components": "file:../investira.react.components",
         "investira.react.lib": "file:../investira.react.lib",
         "investira.sdk": "2.3.5",
