@@ -67,11 +67,8 @@ const LoginHeader = memo(({ step, prevLocation, title, username }) => {
                 </svg>
             </div>
             {/* Slogan */}
-            <Typography variant={'h4'} className={xClassSlogan} color={'textPrimary'} id={'slogan'}>
-                {GENERIC.LOGIN.TITLE.PART1}
-                <br />
-                <b> {GENERIC.LOGIN.TITLE.PART2}</b>
-            </Typography>
+            {/* <Typography variant={'h4'} className={xClassSlogan} color={'textPrimary'} id={'slogan'}>
+            </Typography> */}
             {/* Login / Cadastro */}
             <Typography variant={'h4'} className={xClassTitle} color={'textPrimary'} id={'title'}>
                 <b>{title}</b>
