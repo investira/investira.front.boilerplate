@@ -28,5 +28,4 @@ export { default as TourFocus } from './TourFocus';
 export { default as TourGuide } from './TourGuide';
 export { default as Transition } from './Transition';
 export { default as User } from './User';
-export { default as WaitBiometry } from './WaitBiometry';
 export { default as Warp } from './Warp';
