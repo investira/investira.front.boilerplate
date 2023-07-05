@@ -1,12 +1,13 @@
-import React, { memo, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
+import React, { memo, useRef } from 'react';
 import * as Yup from 'yup';
+
 import { VALIDATIONS } from '../../const';
+import Style from './Login.module.scss';
 import LoginCadastro from './LoginCadastro';
 import LoginPassword from './LoginPassword';
 import LoginUsername from './LoginUsername';
-import Style from './Login.module.scss';
 
 const SIGN_IN_SCHEMA = Yup.object().shape({
     username: Yup.string()
@@ -53,11 +54,7 @@ const LoginForm = memo(props => {
     // Handlers
     function handleLoginOrRegister(pUserExists, pValues, pFormikActions) {
         if (pUserExists) {
-            props.handleLogin(
-                pValues,
-                () => pFormikActions.setSubmitting(false),
-                errorPasswordFocus
-            );
+            props.handleLogin(pValues, pFormikActions, errorPasswordFocus);
         } else {
             props.handleRegister(pValues, sent => {
                 pFormikActions.setSubmitting(false);

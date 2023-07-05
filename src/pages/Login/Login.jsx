@@ -1,16 +1,15 @@
+import classNames from 'classnames';
+import { IconButton, Icon } from 'investira.react.components';
+import { browsers, renders } from 'investira.react.lib';
+import { validators, responses } from 'investira.sdk';
+import PropTypes from 'prop-types';
 import React, { memo, useState, useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { Redirect } from 'react-router-dom';
-import { validators, responses } from 'investira.sdk';
-import { browsers, renders } from 'investira.react.lib';
-import { IconButton, Icon } from 'investira.react.components';
-import services from '../../services';
-import LoginHeader from './LoginHeader';
-import LoginForm from './LoginForm';
-import LoginCadastroMessage from './LoginCadastroMessage';
+
+import { MESSAGES } from '../../const';
 import withResponseHandling from '../../hoc/withResponseHandling';
+import services from '../../services';
 import {
     acAuthLogin,
     acAuthIsFetching,
@@ -18,9 +17,10 @@ import {
     acMessageTextChanged,
     acAuthUpdateStatusToken
 } from '../../store/actions';
-import { MESSAGES } from '../../const';
-
 import Style from './Login.module.scss';
+import LoginCadastroMessage from './LoginCadastroMessage';
+import LoginForm from './LoginForm';
+import LoginHeader from './LoginHeader';
 
 const Login = memo(props => {
     const dispatch = useDispatch();
@@ -86,19 +86,18 @@ const Login = memo(props => {
                       }
                   },
                   rRes => {
+                      pFormActions && pFormActions.setSubmitting(false);
                       dispatch(acAuthIsFetching(false));
 
                       dispatch(acAuthLogin(responses.getObjData(rRes)));
                       dispatch(acAuthSetLogin());
                       dispatch(acAuthUpdateStatusToken('valid'));
-
-                      pFormActions && pFormActions();
                   },
                   rErr => {
+                      pFormActions && pFormActions.setSubmitting(false);
                       dispatch(acAuthIsFetching(false));
                       props.responseErrorHandling(rErr);
 
-                      pFormActions && pFormActions();
                       pFormError && pFormError();
                   }
               )
