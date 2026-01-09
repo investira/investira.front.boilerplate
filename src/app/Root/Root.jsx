@@ -1,13 +1,14 @@
-import React, { memo, useState, useEffect } from 'react';
-import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { browsers } from 'investira.react.lib';
 import { validators } from 'investira.sdk';
-import services from '../../services';
-import { Login, EmailConfirm, RememberPassword, Test } from '../../pages';
+import React, { memo, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+
+import { MESSAGES } from '../../const';
 import { PrivateRouteController } from '../../controllers';
 import { MessageListener } from '../../listeners';
-import { MESSAGES } from '../../const';
+import { Login, EmailConfirm, RememberPassword, Test } from '../../pages';
+import services from '../../services';
 import {
     acAuthLogin,
     acAuthIsFetching,
@@ -117,6 +118,10 @@ const Root = memo(props => {
         if (accessToken && browsers.isOnline()) {
             refreshToken(accessToken, expiresToken);
         }
+
+        window.onpopstate = () => {
+            console.log('pop state');
+        };
     }, []);
 
     // Render
